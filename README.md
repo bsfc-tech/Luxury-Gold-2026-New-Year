@@ -1,36 +1,30 @@
-# 2026 Luxury Gold New Year Celebration
+# 2026 奢华金新年庆典
 
-An elegant, high-end web application designed to celebrate the arrival of 2026. This project features a sophisticated "Black & Gold" aesthetic with immersive interactive elements powered by the Canvas API and Google Gemini AI.
+一个优雅、高端的网页应用，旨在庆祝 2026 年的到来。该项目采用了精致的“黑金”视觉风格，并结合了由 Canvas API 驱动的沉浸式交互元素。
 
-## ✨ Features
+## ✨ 核心特性
 
-- **Interactive Canvas Background**:
-  - **Rising Gold Dust**: A continuous, ethereal animation of golden particles drifting upwards, creating a sense of luxury and momentum.
-  - **Dynamic Fireworks**: Click or tap anywhere on the screen to trigger physics-based, multi-tonal golden firework explosions.
-- **Elegant Countdown**: A precise countdown timer tracking the remaining time until January 1, 2026, styled with refined typography and a glassmorphism container.
-- **AI-Powered Blessings**: Integration with **Google Gemini (gemini-3-flash-preview)** to generate unique, poetic New Year's greetings in Chinese that perfectly match the application's aesthetic.
-- **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing using Tailwind CSS.
-- **Premium Typography**: Utilizes "Playfair Display" for an elegant serif feel and "Inter" for modern readability.
+- **交互式 Canvas 背景**:
+  - **升腾金粉**: 持续不断、空灵的金色粒子向上漂浮动画，营造出奢华与进取的氛围。
+  - **动态烟花**: 点击或触摸屏幕任何位置即可触发基于物理引擎的多色调金色烟花效果。
+- **优雅的倒计时**: 一个精确的倒计时器，追踪距离 2026 年 1 月 1 日的剩余时间，采用精致的排版和毛玻璃质感的容器设计。
+- **精选新年祝福**: 提供一组精心挑选、富有诗意的中文新年祝福，与应用的奢华审美完美契合。
+- **响应式设计**: 使用 Tailwind CSS 针对移动端、平板和桌面端进行了全面优化。
+- **高级排版**: 选用 "Playfair Display" 营造优雅的衬线质感，配合 "Inter" 确保现代化的阅读体验。
 
-## 🛠️ Technology Stack
+## 🛠️ 技术栈
 
-- **React 19**: Modern UI component architecture.
-- **Canvas API**: High-performance 2D rendering for the particle systems and fireworks.
-- **Tailwind CSS**: Utility-first styling for a sleek, responsive interface.
-- **Google GenAI SDK**: Powering the intelligent blessing generator.
-- **TypeScript**: Ensuring robust code quality and type safety.
+- **React 19**: 现代 UI 组件架构。
+- **Canvas API**: 高性能的 2D 渲染，用于粒子系统和烟花效果。
+- **Tailwind CSS**: 原子化样式工具，构建流畅的响应式界面。
+- **TypeScript**: 确保稳健的代码质量和类型安全。
 
-## 🚀 How to Use
+## 🚀 如何使用
 
-1. **View the Countdown**: The central timer shows exactly how long remains until the 2026 New Year.
-2. **Interact with the Sky**: Click or tap on the background to launch celebratory golden fireworks.
-3. **Get a Blessing**: Click the "Get AI Blessing" button at the bottom to receive a unique, poetic greeting generated in real-time by Gemini.
-
-## 🔑 Environment Variables
-
-This application requires a Google Gemini API Key to function correctly for the AI Blessing feature. The key is expected to be available via:
-- `process.env.API_KEY`
+1. **查看倒计时**: 中央计时器显示距离 2026 新年还有多久。
+2. **点亮星空**: 点击或触摸背景，燃放庆祝性的金色烟花。
+3. **获取祝福**: 点击底部的“获取新年祝福”按钮，随机展现一段唯美的贺词。
 
 ---
 
-*Designed with elegance for a prosperous 2026.*
+*为繁荣的 2026 年倾心设计。*

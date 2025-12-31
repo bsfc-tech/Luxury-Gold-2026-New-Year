@@ -9,6 +9,42 @@ interface Vector {
 
 // --- Classes ---
 
+class TwinklingStar {
+  x: number;
+  y: number;
+  size: number;
+  alpha: number;
+  twinkleSpeed: number;
+  phase: number;
+
+  constructor(width: number, height: number) {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.size = Math.random() * 1.2 + 0.2;
+    this.alpha = Math.random();
+    this.twinkleSpeed = Math.random() * 0.05 + 0.01;
+    this.phase = Math.random() * Math.PI * 2;
+  }
+
+  update() {
+    this.phase += this.twinkleSpeed;
+    // Twinkle effect using sine wave for smooth transition
+    this.alpha = (Math.sin(this.phase) + 1) / 2 * 0.8 + 0.2;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    // Pale gold / white for stars
+    ctx.fillStyle = `rgba(255, 250, 230, ${this.alpha * 0.6})`;
+    ctx.shadowBlur = 4 * this.alpha;
+    ctx.shadowColor = "#FFF";
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
 class DustParticle {
   x: number;
   y: number;
@@ -103,6 +139,7 @@ class FireworkParticle {
 
 const CanvasScene: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const stars = useRef<TwinklingStar[]>([]);
   const dustParticles = useRef<DustParticle[]>([]);
   const fireworkParticles = useRef<FireworkParticle[]>([]);
   const colors = ["#FFD700", "#DAA520", "#B8860B", "#F0E68C", "#FFFACD"];
@@ -116,11 +153,14 @@ const CanvasScene: React.FC = () => {
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      initDust();
+      initScene();
     };
 
-    const initDust = () => {
-      dustParticles.current = Array.from({ length: 150 }, () => new DustParticle(canvas.width, canvas.height));
+    const initScene = () => {
+      // Initialize Stars
+      stars.current = Array.from({ length: 80 }, () => new TwinklingStar(canvas.width, canvas.height));
+      // Initialize Dust
+      dustParticles.current = Array.from({ length: 120 }, () => new DustParticle(canvas.width, canvas.height));
     };
 
     const createFirework = (x: number, y: number) => {
@@ -136,8 +176,14 @@ const CanvasScene: React.FC = () => {
 
     const animate = () => {
       // Clear with trail effect
-      ctx.fillStyle = 'rgba(5, 5, 5, 0.2)';
+      ctx.fillStyle = 'rgba(5, 5, 5, 0.25)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Stars update/draw (drawn first, in the background)
+      stars.current.forEach(s => {
+        s.update();
+        s.draw(ctx);
+      });
 
       // Dust update/draw
       dustParticles.current.forEach(p => {

@@ -50,13 +50,13 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
   return (
     <div className="flex items-center justify-center backdrop-blur-sm bg-white/5 border border-white/10 p-6 md:p-8 rounded-2xl shadow-2xl">
-      <TimeUnit value={timeLeft.days} label="Days" />
-      <div className="text-xl md:text-3xl opacity-20">:</div>
-      <TimeUnit value={timeLeft.hours} label="Hours" />
-      <div className="text-xl md:text-3xl opacity-20">:</div>
-      <TimeUnit value={timeLeft.minutes} label="Mins" />
-      <div className="text-xl md:text-3xl opacity-20">:</div>
-      <TimeUnit value={timeLeft.seconds} label="Secs" />
+      <TimeUnit value={timeLeft.days} label="天" />
+      <div className="text-xl md:text-3xl opacity-20 mx-1">:</div>
+      <TimeUnit value={timeLeft.hours} label="时" />
+      <div className="text-xl md:text-3xl opacity-20 mx-1">:</div>
+      <TimeUnit value={timeLeft.minutes} label="分" />
+      <div className="text-xl md:text-3xl opacity-20 mx-1">:</div>
+      <TimeUnit value={timeLeft.seconds} label="秒" />
     </div>
   );
 };
